@@ -1,45 +1,45 @@
-# ¿Por qué Bruno?
+# Why Bruno?
 
-Bruno es una herramienta de testing de APIs diseñada bajo un principio claro:
-las pruebas deben vivir en el repositorio, no en una herramienta externa.
-En entornos modernos —donde Git, CI/CD y automatización son la base— Bruno encaja de forma natural como alternativa ligera y eficiente a soluciones GUI-first.
+Bruno is an API testing tool designed with a clear principle:
+tests should live in the repository, not in an external tool.
+In modern environments—where Git, CI/CD, and automation are the foundation—Bruno is a lightweight, efficient alternative to GUI-first solutions.
 
-## Principios clave de Bruno
+## Key principles of Bruno
 
-### Git como fuente de la verdad
-- Cada request es un archivo `.bru`
-- Versionable, revisable y auditable
-- Cambios visibles en PRs (diffs reales, no binarios)
+### Git as the source of truth
+- Each request is a `.bru` file
+- Versionable, reviewable, and auditable
+- Real diffs in PRs (no binaries)
 
-### Simplicidad por diseño
-- Sin cuentas
-- Sin workspaces en la nube
-- Sin sincronización opaca
-- Sin dependencias innecesarias
+### Simplicity by design
+- No accounts
+- No cloud workspaces
+- No opaque sync
+- No unnecessary dependencies
 
-### Enfoque developer & QA-friendly
-- JavaScript estándar para scripting
-- Curva de aprendizaje baja para perfiles técnicos
-- Integración natural con flujos DevOps
+### Developer & QA-friendly
+- Standard JavaScript for scripting
+- Low learning curve for technical profiles
+- Natural integration with DevOps workflows
 
-## Cuándo Bruno es una buena elección
+## When Bruno is a good fit
 
-Bruno es especialmente adecuado cuando:
-- Las pruebas de API forman parte del pipeline de CI/CD
-- El equipo ya trabaja con Git de forma intensiva
-- Se busca trazabilidad y control de cambios
-- Se quiere evitar vendor lock-in
-- QA y Dev comparten el mismo repositorio
+Bruno is especially suitable when:
+- API tests are part of the CI/CD pipeline
+- The team already works heavily with Git
+- Traceability and change control are required
+- You want to avoid vendor lock-in
+- QA and Dev share the same repository
 
-## Cuándo puede no ser la mejor opción
+## When it may not be the best option
 
-- Exploración manual intensiva para usuarios no técnicos
-- Equipos que dependen fuertemente de visualizadores o UI avanzada
-- Contextos donde el testing no está integrado en el ciclo de desarrollo
+- Heavy manual exploration for non-technical users
+- Teams that rely heavily on visualizers or advanced UI
+- Contexts where testing is not integrated into the dev cycle
 
-## Resumen
+## Summary
 
-Bruno no pretende reemplazar todas las herramientas existentes, sino resolver muy bien un problema concreto:
-testing de APIs versionable, automatizable y alineado con Git y CI/CD.
+Bruno does not aim to replace every tool, but to do one thing exceptionally well:
+versionable, automatable API testing aligned with Git and CI/CD.
 
-> TL;DR: pruebas de API como código, en Git, listas para CI/CD.
+> TL;DR: API tests as code, in Git, ready for CI/CD.

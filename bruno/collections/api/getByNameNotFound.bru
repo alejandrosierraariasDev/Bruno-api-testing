@@ -1,0 +1,13 @@
+meta {
+  name: Get Pokemon by Name
+  type: http
+}
+
+get {
+  url: {{baseUrl}}/pokemon/JohnDoe
+}
+
+assert {
+  res.status: eq 404
+}
+

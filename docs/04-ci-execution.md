@@ -1,21 +1,21 @@
-# Ejecución de pruebas Bruno en CI/CD
+# Running Bruno tests in CI/CD
 
-Uno de los puntos fuertes de Bruno es su CLI simple y predecible, diseñada para ejecutarse sin fricción en pipelines automatizados.
+One of Bruno's strengths is its simple and predictable CLI, designed to run frictionlessly in automated pipelines.
 
-## Ejecución local
+## Local execution
 
 ```bash
 bru run bruno/collections/api --env bruno/collections/api/environments/local.bru
 ```
 
 - Exit code 0 → tests OK
-- Exit code ≠ 0 → fallo en pipeline
+- Exit code ≠ 0 → pipeline failure
 
-Esto permite integrar Bruno en cualquier sistema CI sin adaptadores adicionales.
+This allows integrating Bruno into any CI system without extra adapters.
 
-> Nota: ejecuta `bru run` dentro de la carpeta de la colección que contiene `bruno.json`, o pasa la ruta a esa carpeta. Ese archivo define qué colección cargar.
+> Note: run `bru run` inside the collection folder that contains `bruno.json`, or pass the path to that folder. That file defines which collection to load.
 
-## Ejemplo con GitHub Actions
+## Example with GitHub Actions
 
 ```yaml
 name: Bruno API Tests
@@ -39,29 +39,29 @@ jobs:
         run: bru run bruno/collections/api --env bruno/collections/api/environments/local.bru
 ```
 
-## Beneficios en CI/CD
+## Benefits in CI/CD
 
-- No requiere UI
-- No requiere cuentas
-- No requiere tokens personales
-- Fácil de paralelizar
-- Fácil de extender (reports, artefacts, notificaciones)
+- No UI required
+- No accounts required
+- No personal tokens required
+- Easy to parallelize
+- Easy to extend (reports, artifacts, notifications)
 
-## Comparativa con enfoques tradicionales
+## Comparison with traditional approaches
 
-| Aspecto | Bruno | Postman (Newman) |
+| Aspect | Bruno | Postman (Newman) |
 | --- | --- | --- |
-| Setup en CI | Muy simple | Más pasos |
-| Dependencias | Mínimas | Newman + exports |
-| Formato tests | Archivos Git | JSON exportado |
-| Mantenibilidad | Alta | Media |
+| CI setup | Very simple | More steps |
+| Dependencies | Minimal | Newman + exports |
+| Test format | Git-tracked files | Exported JSON |
+| Maintainability | High | Medium |
 
-## Conclusión
+## Conclusion
 
-Bruno está pensado para:
+Bruno is designed to:
 
-- Fallar rápido
-- Integrarse fácilmente
-- Ser parte del pipeline, no un añadido posterior
+- Fail fast
+- Integrate easily
+- Be part of the pipeline, not an afterthought
 
-En CI/CD, menos capas significa menos problemas.
+In CI/CD, fewer layers mean fewer problems.

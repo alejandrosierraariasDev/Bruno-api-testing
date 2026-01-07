@@ -23,32 +23,32 @@
   </a>
 </p>
 
-Starter profesional para testing de APIs con Bruno: colecciones versionables en Git, entornos por JSON, scripting sencillo y ejecución en CI con GitHub Actions. Incluye guía de migración desde Postman.
+Professional starter for API testing with Bruno: Git-versioned collections, JSON-based environments, simple scripting, and CI execution with GitHub Actions. Includes a Postman migration guide.
 
-## Características clave
+## Key features
 
-- Archivos `.bru` versionables, revisables y fáciles de mantener.
-- Entornos `local/staging/prod` en JSON.
-- Scripts de `pre-request` y `assertions` en JavaScript estándar.
-- Ejecución por CLI (`bru run`) y en CI (GitHub Actions).
+- Versionable `.bru` files, easy to review and maintain.
+- JSON environments (`local/staging/prod`).
+- Standard JavaScript for `pre-request` and `assertions` scripts.
+- Run via CLI (`bru run`) and CI (GitHub Actions).
 
-## Índice de documentación
+## Documentation index
 
-- [¿Por qué Bruno?](./docs/01-why-bruno.md)
+- [Why Bruno?](./docs/01-why-bruno.md)
 - [Bruno vs Postman](./docs/02-bruno-vs-postman.md)
 - [Bruno + GitHub](./docs/03-github-integration.md)
-- [Ejecución en CI/CD](./docs/04-ci-execution.md)
-- [Migración desde Postman](./postman-migration/migration-guide.md)
+- [CI/CD execution](./docs/04-ci-execution.md)
+- [Postman migration](./postman-migration/migration-guide.md)
 
-## Requisitos
+## Requirements
 
-- Bruno (app de escritorio) o Bruno CLI
+- Bruno (desktop app) or Bruno CLI
 - Node.js 18+
-- GitHub Actions (opcional, para CI)
+- GitHub Actions (optional, for CI)
 
-## Verificar Node y npm e instalar Bruno CLI
+## Verify Node and npm and install Bruno CLI
 
-Comprueba las versiones instaladas y luego instala Bruno CLI de forma global:
+Check installed versions, then install Bruno CLI globally:
 
 ```bash
 node -v
@@ -57,29 +57,29 @@ npm -v
 npm install -g @usebruno/cli
 ```
 
-## Instalación
+## Installation
 
-- Clona el repositorio.
-- Abre la carpeta `bruno/collections/api` con Bruno (File → Open Collection). Esa carpeta contiene el `bruno.json` de la colección y el entorno en `environments/local.bru`.
+- Clone the repository.
+- Open `bruno/collections/api` with Bruno (File → Open Collection). That folder contains the collection `bruno.json` and the environment file `environments/local.bru`.
 
-## Uso rápido
+## Quick start
 
-- Selecciona el entorno `local` definido en `bruno/collections/api/environments/local.bru`.
-- Ejecuta las requests de la colección `api`.
+- Select the `local` environment defined in `bruno/collections/api/environments/local.bru`.
+- Run the requests from the `api` collection.
 
-Ejecución por CLI:
+CLI execution:
 
 ```bash
-# desde la raíz del repo
+# from repository root
 bru run bruno/collections/api --env bruno/collections/api/environments/local.bru
 
-# ó situándote dentro de la carpeta de la colección
+# or from inside the collection folder
 cd bruno/collections/api && bru run --env environments/local.bru
 ```
 
-> Nota: ejecuta `bru run` dentro de la carpeta de la colección que contiene `bruno.json`, o pasa la ruta a esa carpeta. Ese archivo define qué colección cargar.
+> Note: run `bru run` inside the collection folder that contains `bruno.json`, or pass the path to that folder. That file defines which collection to load.
 
-## Estructura del proyecto
+## Project structure
 
 ```text
 bruno-api-testing/
@@ -114,26 +114,26 @@ bruno-api-testing/
 └── LICENSE
 ```
 
-## Colección `api` (PokeAPI)
+## `api` collection (PokeAPI)
 
-- `getAll.bru`: lista de Pokémon (`/pokemon?limit=20&offset=0`).
-- `getByName.bru`: detalle de un Pokémon por nombre (`/pokemon/pikachu`).
-- `getByAbility.bru`: ejemplo de consulta de habilidad (`/ability`).
-- `getByNameNotFound.bru`: caso 404 para nombre inexistente.
+- `getAll.bru`: Pokémon list (`/pokemon?limit=20&offset=0`).
+- `getByName.bru`: Pokémon detail by name (`/pokemon/pikachu`).
+- `getByAbility.bru`: example ability query (`/ability`).
+- `getByNameNotFound.bru`: 404 case for non-existing name.
 
-## Entornos
+## Environments
 
-- `bruno/collections/api/environments/local.bru` define variables como `baseUrl` y `abilityurl`.
+- `bruno/collections/api/environments/local.bru` defines variables like `baseUrl` and `abilityurl`.
 
-## CI con GitHub Actions
+## CI with GitHub Actions
 
-- Workflow en `.github/workflows/bruno-tests.yml` para ejecutar pruebas de colección en CI. Ver [guía de CI/CD](./docs/04-ci-execution.md).
+- Workflow in `.github/workflows/bruno-tests.yml` to run the collection in CI. See the [CI/CD guide](./docs/04-ci-execution.md).
 
-## Migración desde Postman
+## Postman migration
 
-- `postman-migration/postman-collection.json`: ejemplo de colección exportada.
-- `postman-migration/migration-guide.md`: pasos para convertir a Bruno.
+- `postman-migration/postman-collection.json`: example exported collection.
+- `postman-migration/migration-guide.md`: steps to migrate to Bruno.
 
-## Licencia
+## License
 
-Este proyecto se distribuye bajo la licencia MIT.
+This project is distributed under the MIT license.

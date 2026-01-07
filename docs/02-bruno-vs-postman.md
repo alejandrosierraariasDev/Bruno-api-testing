@@ -1,33 +1,33 @@
 # Bruno vs Postman
 
-Comparativa directa y pragmática para decidir rápidamente en qué escenarios encaja mejor cada herramienta.
+A direct, pragmatic comparison to quickly decide which scenarios fit each tool better.
 
-## Objetivo de la comparativa
+## Comparison objective
 
-Esta comparativa no pretende desacreditar Postman, sino poner en contexto cuándo Bruno encaja mejor, especialmente en equipos que trabajan con Git, CI/CD y flujos DevOps modernos.
+This comparison does not intend to discredit Postman, but to contextualize when Bruno fits better—especially for teams working with Git, CI/CD, and modern DevOps workflows.
 
-## Tabla comparativa
+## Comparison table
 
-| Aspecto | Bruno | Postman |
+| Aspect | Bruno | Postman |
 | --- | --- | --- |
-| Modelo de trabajo | Git-native (archivos `.bru` versionables) | GUI-first, orientado a workspace |
-| Control de versiones | Nativo con Git (diffs claros, PRs, code review) | Limitado, requiere exports/imports |
-| CI/CD | CLI simple (`bruno run`), ideal para pipelines | Requiere Newman + configuración adicional |
-| Dependencia de cuenta | No requiere login ni cloud | Dependiente de cuenta y workspaces |
-| Vendor lock-in | Bajo (formato legible, open source) | Alto (ecosistema cerrado) |
-| Curva de aprendizaje | Baja para perfiles Dev/QA técnicos | Muy baja para perfiles no técnicos |
-| Scripting | JavaScript simple, sin abstracciones | JavaScript con APIs propias |
-| Colaboración | Basada en Git (PRs, revisiones, historial) | Basada en UI y sincronización cloud |
-| Uso offline | Total | Parcial |
-| Escalabilidad en equipos DevOps | Alta | Media |
+| Working model | Git-native (versionable `.bru` files) | GUI-first, workspace-oriented |
+| Version control | Native with Git (clear diffs, PRs, code review) | Limited, requires exports/imports |
+| CI/CD | Simple CLI (`bruno run`), pipeline-friendly | Requires Newman + extra configuration |
+| Account dependency | No login or cloud required | Depends on account and workspaces |
+| Vendor lock-in | Low (readable format, open source) | High (closed ecosystem) |
+| Learning curve | Low for technical Dev/QA profiles | Very low for non-technical profiles |
+| Scripting | Simple JavaScript, minimal abstractions | JavaScript with custom APIs |
+| Collaboration | Git-based (PRs, reviews, history) | UI-based with cloud sync |
+| Offline use | Full | Partial |
+| DevOps team scalability | High | Medium |
 
-## Conclusiones clave
+## Key takeaways
 
-- **Postman**: excelente como herramienta exploratoria y para perfiles menos técnicos.
-- **Bruno** destaca cuando:
-  - El repositorio es la fuente de la verdad.
-  - Las pruebas deben ejecutarse en CI/CD.
-  - Se requiere trazabilidad, revisión por PR y control de cambios.
-  - En equipos QA + DevOps, reduce fricción y dependencias externas.
+- **Postman**: excellent for exploratory work and less technical profiles.
+- **Bruno** shines when:
+  - The repository is the source of truth.
+  - Tests must run in CI/CD.
+  - Traceability, PR reviews, and change control are required.
+  - In QA + DevOps teams, it reduces friction and external dependencies.
 
-> Recomendación: usa Postman para exploración rápida; consolida en Bruno para pruebas versionables y pipelines.
+> Recommendation: use Postman for quick exploration; consolidate in Bruno for versioned tests and pipelines.

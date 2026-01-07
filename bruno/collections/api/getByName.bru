@@ -1,0 +1,22 @@
+meta {
+  name: Get Pokemon by Name
+  type: http
+}
+
+get {
+  url: {{baseUrl}}/pokemon/pikachu
+}
+
+assert {
+  res.status: eq 200
+  res.body.name: eq "pikachu"
+  res.body.height: gt 0
+  res.body.weight: gt 0
+}
+
+tests{
+    test("should be able to login", function () {
+      const data = res.getBody();
+      expect(res.getStatus()).to.equal(200);
+    });
+}

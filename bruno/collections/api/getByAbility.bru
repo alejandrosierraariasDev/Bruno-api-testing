@@ -1,0 +1,13 @@
+meta {
+  name: Get Ability
+  type: http
+}
+
+get {
+  url: {{abilityurl}}
+}
+
+assert {
+  res.status: eq 200
+  res.body.results.length: eq 20
+}

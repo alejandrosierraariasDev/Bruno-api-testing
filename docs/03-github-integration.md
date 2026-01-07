@@ -1,29 +1,29 @@
-# Bruno + GitHub: una integración natural
+# Bruno + GitHub: a natural integration
 
-Bruno no “se integra” con GitHub mediante plugins o APIs externas.
-Su integración es estructural: funciona porque el modelo de trabajo está basado en archivos.
+Bruno does not "integrate" with GitHub through plugins or external APIs.
+Its integration is structural: it works because the operating model is file-based.
 
-## Qué aporta GitHub en un proyecto con Bruno
+## What GitHub brings to a Bruno project
 
-### Control de versiones real
-- Cada cambio en una request queda registrado
-- Historial claro de quién cambió qué y por qué
-- Rollbacks simples y seguros
+### Real version control
+- Every change to a request is recorded
+- Clear history of who changed what and why
+- Simple and safe rollbacks
 
-### Code Review de pruebas
-- Las pruebas se revisan igual que el código
-- Comentarios en PR sobre:
+### Test code review
+- Tests are reviewed just like code
+- PR comments on:
   - Assertions
   - Variables
-  - Casos borde
-- Mejora la calidad del testing
+  - Edge cases
+- Improves testing quality
 
-### Colaboración sin fricción
-- No hay exports/imports manuales
-- No hay conflictos de workspace
-- No hay dependencias de cuentas personales
+### Frictionless collaboration
+- No manual exports/imports
+- No workspace conflicts
+- No dependency on personal accounts
 
-## Estructura recomendada en el repositorio
+## Recommended repository structure
 
 ```text
 bruno/
@@ -38,24 +38,24 @@ bruno/
         └── getByNameNotFound.bru
 ```
 
-Esto permite:
+This enables:
 
-- Separación clara de responsabilidades
-- Escalabilidad del proyecto
-- Onboarding rápido de nuevos miembros
+- Clear separation of responsibilities
+- Project scalability
+- Fast onboarding for new members
 
-> Nota: ejecuta `bru run` dentro de `bruno/collections/api` (donde está `bruno.json`) o pasa esa ruta con `--env environments/local.bru`.
+> Note: run `bru run` inside `bruno/collections/api` (where `bruno.json` lives) or pass that path with `--env environments/local.bru`.
 
-## Ventaja frente a herramientas GUI-first
+## Advantage over GUI-first tools
 
-En lugar de:
+Instead of:
 
-- Exportar colecciones
-- Resolver conflictos manualmente
-- Depender de sincronización cloud
+- Exporting collections
+- Resolving conflicts manually
+- Depending on cloud sync
 
-Con Bruno:
+With Bruno:
 
-- GitHub es el mecanismo de colaboración
-- Las pruebas evolucionan junto al código
-- El repositorio es autosuficiente
+- GitHub is the collaboration mechanism
+- Tests evolve alongside the code
+- The repository is self-sufficient

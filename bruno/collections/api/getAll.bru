@@ -1,0 +1,14 @@
+meta {
+  name: Get Pokemon List
+  type: http
+}
+
+get {
+  url: {{baseUrl}}/pokemon?limit=20&offset=0
+}
+
+assert {
+  res.status: eq 200
+  res.body.results: isDefined
+  res.body.results.length: eq 20
+}
