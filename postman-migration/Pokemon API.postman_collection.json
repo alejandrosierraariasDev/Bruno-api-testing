@@ -1,0 +1,418 @@
+{
+	"info": {
+		"_postman_id": "bebf2ce6-331d-48fd-a5ed-577b96a11f1b",
+		"name": "Pokemon API",
+		"description": "\r\nThis is the Pokemon API I created for testing purposes. \r\n\r\nPlease reference the official documentation here: https://pokeapi.co/docs/v2 ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10774713",
+		"_collection_link": "https://www.postman.com/postman/postman-team-collections/collection/xpp5m5x/pokemon-api?action=share&source=collection_link&creator=10774713"
+	},
+	"item": [
+		{
+			"name": "Pokemon",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `\r",
+							"    <table bgcolor=\"#FFFFFF\">\r",
+							"        <tr>\r",
+							"            <th>name</th>\r",
+							"            <th>url</th>\r",
+							"        </tr>\r",
+							"\r",
+							"        {{#each response.results}}\r",
+							"            <tr id=row {{@key}} onClick=\"handleClick(this.id)\">\r",
+							"                <td id={{@key}}>{{name}}</td>\r",
+							"                <td>{{url}}</td>\r",
+							"            </tr>\r",
+							"        {{/each}}\r",
+							"    </table>\r",
+							"`;\r",
+							"// Set visualizer\r",
+							"pm.visualizer.set(template, {\r",
+							"    // Pass the response body parsed as JSON as `data`\r",
+							"    response: pm.response.json()\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon/?limit=151",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon",
+						""
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "151"
+						},
+						{
+							"key": "offset",
+							"value": "151",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Pokemon 1-151",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/pokemon/?limit=151",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"pokemon",
+								""
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "151"
+								},
+								{
+									"key": "offset",
+									"value": "151",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 16 Sep 2020 17:22:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=86400, s-maxage=86400"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"271b-m4+5bZwqi6R3LnbzbxwTZVqbNGM\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "tkjv8xv2czed"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "174134351a0aa7a994f1e26002b2fcc2"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "US"
+						},
+						{
+							"key": "X-Orig-Accept-Language",
+							"value": "en-US"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-sjc10067-SJC"
+						},
+						{
+							"key": "X-Cache",
+							"value": "HIT"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "1"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1600275429.167685,VS0,VE1"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding,cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "HIT"
+						},
+						{
+							"key": "Age",
+							"value": "1524"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "05398992b700006d2e1014f200000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "5d3c453129df6d2e-SJC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 1050,\n    \"next\": \"https://pokeapi.co/api/v2/pokemon/?offset=151&limit=151\",\n    \"previous\": null,\n    \"results\": [\n        {\n            \"name\": \"bulbasaur\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/1/\"\n        },\n        {\n            \"name\": \"ivysaur\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/2/\"\n        },\n        {\n            \"name\": \"venusaur\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/3/\"\n        },\n        {\n            \"name\": \"charmander\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/4/\"\n        },\n        {\n            \"name\": \"charmeleon\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/5/\"\n        },\n        {\n            \"name\": \"charizard\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/6/\"\n        },\n        {\n            \"name\": \"squirtle\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/7/\"\n        },\n        {\n            \"name\": \"wartortle\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/8/\"\n        },\n        {\n            \"name\": \"blastoise\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/9/\"\n        },\n        {\n            \"name\": \"caterpie\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/10/\"\n        },\n        {\n            \"name\": \"metapod\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/11/\"\n        },\n        {\n            \"name\": \"butterfree\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/12/\"\n        },\n        {\n            \"name\": \"weedle\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/13/\"\n        },\n        {\n            \"name\": \"kakuna\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/14/\"\n        },\n        {\n            \"name\": \"beedrill\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/15/\"\n        },\n        {\n            \"name\": \"pidgey\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/16/\"\n        },\n        {\n            \"name\": \"pidgeotto\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/17/\"\n        },\n        {\n            \"name\": \"pidgeot\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/18/\"\n        },\n        {\n            \"name\": \"rattata\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/19/\"\n        },\n        {\n            \"name\": \"raticate\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/20/\"\n        },\n        {\n            \"name\": \"spearow\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/21/\"\n        },\n        {\n            \"name\": \"fearow\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/22/\"\n        },\n        {\n            \"name\": \"ekans\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/23/\"\n        },\n        {\n            \"name\": \"arbok\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/24/\"\n        },\n        {\n            \"name\": \"pikachu\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/25/\"\n        },\n        {\n            \"name\": \"raichu\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/26/\"\n        },\n        {\n            \"name\": \"sandshrew\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/27/\"\n        },\n        {\n            \"name\": \"sandslash\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/28/\"\n        },\n        {\n            \"name\": \"nidoran-f\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/29/\"\n        },\n        {\n            \"name\": \"nidorina\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/30/\"\n        },\n        {\n            \"name\": \"nidoqueen\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/31/\"\n        },\n        {\n            \"name\": \"nidoran-m\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/32/\"\n        },\n        {\n            \"name\": \"nidorino\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/33/\"\n        },\n        {\n            \"name\": \"nidoking\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/34/\"\n        },\n        {\n            \"name\": \"clefairy\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/35/\"\n        },\n        {\n            \"name\": \"clefable\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/36/\"\n        },\n        {\n            \"name\": \"vulpix\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/37/\"\n        },\n        {\n            \"name\": \"ninetales\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/38/\"\n        },\n        {\n            \"name\": \"jigglypuff\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/39/\"\n        },\n        {\n            \"name\": \"wigglytuff\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/40/\"\n        },\n        {\n            \"name\": \"zubat\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/41/\"\n        },\n        {\n            \"name\": \"golbat\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/42/\"\n        },\n        {\n            \"name\": \"oddish\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/43/\"\n        },\n        {\n            \"name\": \"gloom\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/44/\"\n        },\n        {\n            \"name\": \"vileplume\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/45/\"\n        },\n        {\n            \"name\": \"paras\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/46/\"\n        },\n        {\n            \"name\": \"parasect\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/47/\"\n        },\n        {\n            \"name\": \"venonat\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/48/\"\n        },\n        {\n            \"name\": \"venomoth\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/49/\"\n        },\n        {\n            \"name\": \"diglett\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/50/\"\n        },\n        {\n            \"name\": \"dugtrio\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/51/\"\n        },\n        {\n            \"name\": \"meowth\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/52/\"\n        },\n        {\n            \"name\": \"persian\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/53/\"\n        },\n        {\n            \"name\": \"psyduck\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/54/\"\n        },\n        {\n            \"name\": \"golduck\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/55/\"\n        },\n        {\n            \"name\": \"mankey\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/56/\"\n        },\n        {\n            \"name\": \"primeape\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/57/\"\n        },\n        {\n            \"name\": \"growlithe\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/58/\"\n        },\n        {\n            \"name\": \"arcanine\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/59/\"\n        },\n        {\n            \"name\": \"poliwag\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/60/\"\n        },\n        {\n            \"name\": \"poliwhirl\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/61/\"\n        },\n        {\n            \"name\": \"poliwrath\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/62/\"\n        },\n        {\n            \"name\": \"abra\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/63/\"\n        },\n        {\n            \"name\": \"kadabra\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/64/\"\n        },\n        {\n            \"name\": \"alakazam\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/65/\"\n        },\n        {\n            \"name\": \"machop\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/66/\"\n        },\n        {\n            \"name\": \"machoke\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/67/\"\n        },\n        {\n            \"name\": \"machamp\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/68/\"\n        },\n        {\n            \"name\": \"bellsprout\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/69/\"\n        },\n        {\n            \"name\": \"weepinbell\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/70/\"\n        },\n        {\n            \"name\": \"victreebel\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/71/\"\n        },\n        {\n            \"name\": \"tentacool\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/72/\"\n        },\n        {\n            \"name\": \"tentacruel\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/73/\"\n        },\n        {\n            \"name\": \"geodude\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/74/\"\n        },\n        {\n            \"name\": \"graveler\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/75/\"\n        },\n        {\n            \"name\": \"golem\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/76/\"\n        },\n        {\n            \"name\": \"ponyta\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/77/\"\n        },\n        {\n            \"name\": \"rapidash\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/78/\"\n        },\n        {\n            \"name\": \"slowpoke\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/79/\"\n        },\n        {\n            \"name\": \"slowbro\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/80/\"\n        },\n        {\n            \"name\": \"magnemite\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/81/\"\n        },\n        {\n            \"name\": \"magneton\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/82/\"\n        },\n        {\n            \"name\": \"farfetchd\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/83/\"\n        },\n        {\n            \"name\": \"doduo\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/84/\"\n        },\n        {\n            \"name\": \"dodrio\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/85/\"\n        },\n        {\n            \"name\": \"seel\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/86/\"\n        },\n        {\n            \"name\": \"dewgong\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/87/\"\n        },\n        {\n            \"name\": \"grimer\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/88/\"\n        },\n        {\n            \"name\": \"muk\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/89/\"\n        },\n        {\n            \"name\": \"shellder\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/90/\"\n        },\n        {\n            \"name\": \"cloyster\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/91/\"\n        },\n        {\n            \"name\": \"gastly\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/92/\"\n        },\n        {\n            \"name\": \"haunter\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/93/\"\n        },\n        {\n            \"name\": \"gengar\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/94/\"\n        },\n        {\n            \"name\": \"onix\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/95/\"\n        },\n        {\n            \"name\": \"drowzee\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/96/\"\n        },\n        {\n            \"name\": \"hypno\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/97/\"\n        },\n        {\n            \"name\": \"krabby\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/98/\"\n        },\n        {\n            \"name\": \"kingler\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/99/\"\n        },\n        {\n            \"name\": \"voltorb\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/100/\"\n        },\n        {\n            \"name\": \"electrode\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/101/\"\n        },\n        {\n            \"name\": \"exeggcute\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/102/\"\n        },\n        {\n            \"name\": \"exeggutor\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/103/\"\n        },\n        {\n            \"name\": \"cubone\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/104/\"\n        },\n        {\n            \"name\": \"marowak\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/105/\"\n        },\n        {\n            \"name\": \"hitmonlee\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/106/\"\n        },\n        {\n            \"name\": \"hitmonchan\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/107/\"\n        },\n        {\n            \"name\": \"lickitung\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/108/\"\n        },\n        {\n            \"name\": \"koffing\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/109/\"\n        },\n        {\n            \"name\": \"weezing\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/110/\"\n        },\n        {\n            \"name\": \"rhyhorn\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/111/\"\n        },\n        {\n            \"name\": \"rhydon\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/112/\"\n        },\n        {\n            \"name\": \"chansey\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/113/\"\n        },\n        {\n            \"name\": \"tangela\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/114/\"\n        },\n        {\n            \"name\": \"kangaskhan\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/115/\"\n        },\n        {\n            \"name\": \"horsea\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/116/\"\n        },\n        {\n            \"name\": \"seadra\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/117/\"\n        },\n        {\n            \"name\": \"goldeen\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/118/\"\n        },\n        {\n            \"name\": \"seaking\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/119/\"\n        },\n        {\n            \"name\": \"staryu\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/120/\"\n        },\n        {\n            \"name\": \"starmie\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/121/\"\n        },\n        {\n            \"name\": \"mr-mime\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/122/\"\n        },\n        {\n            \"name\": \"scyther\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/123/\"\n        },\n        {\n            \"name\": \"jynx\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/124/\"\n        },\n        {\n            \"name\": \"electabuzz\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/125/\"\n        },\n        {\n            \"name\": \"magmar\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/126/\"\n        },\n        {\n            \"name\": \"pinsir\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/127/\"\n        },\n        {\n            \"name\": \"tauros\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/128/\"\n        },\n        {\n            \"name\": \"magikarp\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/129/\"\n        },\n        {\n            \"name\": \"gyarados\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/130/\"\n        },\n        {\n            \"name\": \"lapras\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/131/\"\n        },\n        {\n            \"name\": \"ditto\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/132/\"\n        },\n        {\n            \"name\": \"eevee\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/133/\"\n        },\n        {\n            \"name\": \"vaporeon\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/134/\"\n        },\n        {\n            \"name\": \"jolteon\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/135/\"\n        },\n        {\n            \"name\": \"flareon\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/136/\"\n        },\n        {\n            \"name\": \"porygon\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/137/\"\n        },\n        {\n            \"name\": \"omanyte\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/138/\"\n        },\n        {\n            \"name\": \"omastar\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/139/\"\n        },\n        {\n            \"name\": \"kabuto\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/140/\"\n        },\n        {\n            \"name\": \"kabutops\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/141/\"\n        },\n        {\n            \"name\": \"aerodactyl\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/142/\"\n        },\n        {\n            \"name\": \"snorlax\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/143/\"\n        },\n        {\n            \"name\": \"articuno\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/144/\"\n        },\n        {\n            \"name\": \"zapdos\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/145/\"\n        },\n        {\n            \"name\": \"moltres\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/146/\"\n        },\n        {\n            \"name\": \"dratini\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/147/\"\n        },\n        {\n            \"name\": \"dragonair\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/148/\"\n        },\n        {\n            \"name\": \"dragonite\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/149/\"\n        },\n        {\n            \"name\": \"mewtwo\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/150/\"\n        },\n        {\n            \"name\": \"mew\",\n            \"url\": \"https://pokeapi.co/api/v2/pokemon/151/\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Evolution Chains",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/evolution-chain/",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"evolution-chain",
+						""
+					]
+				},
+				"description": "https://pokeapi.co/api/v2/evolution-chain/{id}/\r\n\r\nEvolution chains are essentially family trees. They start with the lowest stage within a family and detail evolution conditions for each as well as Pokémon they can evolve into up through the hierarchy."
+			},
+			"response": []
+		},
+		{
+			"name": "Generations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/generation/",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"generation",
+						""
+					]
+				},
+				"description": "A generation is a grouping of the Pokémon games that separates them based on the Pokémon they include. In each generation, a new set of Pokémon, Moves, Abilities and Types that did not exist in the previous generation are released.\r\n\r\n"
+			},
+			"response": [
+				{
+					"name": "Results 8",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://pokeapi.co/api/v2/generation/",
+							"protocol": "https",
+							"host": [
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"api",
+								"v2",
+								"generation",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Wed, 16 Sep 2020 17:41:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "public, max-age=86400, s-maxage=86400"
+						},
+						{
+							"key": "Etag",
+							"value": "W/\"27d-bH1q85dVMRBPnRJS/RTkeKi4SNU\""
+						},
+						{
+							"key": "Function-Execution-Id",
+							"value": "tc3vxgnpq865"
+						},
+						{
+							"key": "X-Cloud-Trace-Context",
+							"value": "cf1078878f9bcaded453ceac7fc2fdec;o=1"
+						},
+						{
+							"key": "X-Country-Code",
+							"value": "US"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "X-Served-By",
+							"value": "cache-sjc10028-SJC"
+						},
+						{
+							"key": "X-Cache",
+							"value": "MISS"
+						},
+						{
+							"key": "X-Cache-Hits",
+							"value": "0"
+						},
+						{
+							"key": "X-Timer",
+							"value": "S1600278107.892447,VS0,VE484"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding,cookie,need-authorization, x-fh-requested-host, accept-encoding"
+						},
+						{
+							"key": "CF-Cache-Status",
+							"value": "MISS"
+						},
+						{
+							"key": "cf-request-id",
+							"value": "05399b2afe000096236113f200000001"
+						},
+						{
+							"key": "Expect-CT",
+							"value": "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\""
+						},
+						{
+							"key": "Server",
+							"value": "cloudflare"
+						},
+						{
+							"key": "CF-RAY",
+							"value": "5d3c6157f9109623-SJC"
+						},
+						{
+							"key": "Content-Encoding",
+							"value": "br"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 8,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"name\": \"generation-i\",\n            \"url\": \"https://pokeapi.co/api/v2/generation/1/\"\n        },\n        {\n            \"name\": \"generation-ii\",\n            \"url\": \"https://pokeapi.co/api/v2/generation/2/\"\n        },\n        {\n            \"name\": \"generation-iii\",\n            \"url\": \"https://pokeapi.co/api/v2/generation/3/\"\n        },\n        {\n            \"name\": \"generation-iv\",\n            \"url\": \"https://pokeapi.co/api/v2/generation/4/\"\n        },\n        {\n            \"name\": \"generation-v\",\n            \"url\": \"https://pokeapi.co/api/v2/generation/5/\"\n        },\n        {\n            \"name\": \"generation-vi\",\n            \"url\": \"https://pokeapi.co/api/v2/generation/6/\"\n        },\n        {\n            \"name\": \"generation-vii\",\n            \"url\": \"https://pokeapi.co/api/v2/generation/7/\"\n        },\n        {\n            \"name\": \"generation-viii\",\n            \"url\": \"https://pokeapi.co/api/v2/generation/8/\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Pokedexes ",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "A Pokédex is a handheld electronic encyclopedia device; one which is capable of recording and retaining information of the various Pokémon in a given region with the exception of the national dex and some smaller dexes related to portions of a region. See Bulbapedia for greater detail.\r\nhttps://pokeapi.co/api/v2/pokedex/{id or name}/"
+			},
+			"response": []
+		},
+		{
+			"name": "Abilities",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "https://pokeapi.co/api/v2/ability/{id or name}/\r\n\r\nAbilities provide passive effects for Pokémon in battle or in the overworld. Pokémon have multiple possible abilities but can have only one ability at a time. Check out Bulbapedia for greater detail.\r\n\r\n"
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
