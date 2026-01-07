@@ -24,4 +24,4 @@ jobs:
         run: npm install -g @usebruno/cli
 
       - name: Run Bruno collection
-        run: bru run bruno/collections/api --env local
+        run: bru run bruno/collections/api --env local --reporter-list
