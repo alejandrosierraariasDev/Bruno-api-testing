@@ -3,6 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test:bruno": "bruno run bruno/collections/api --env bruno/environments/local.bru"
+    "test:bruno": "bru run bruno/collections/api --env local"
   }
 }

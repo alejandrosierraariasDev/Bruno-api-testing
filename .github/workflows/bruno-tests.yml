@@ -2,13 +2,9 @@ name: Bruno Tests
 
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [main, master]
   pull_request:
-    branches:
-      - main
-      - master
+    branches: [main, master]
 
 jobs:
   test:
@@ -25,13 +21,7 @@ jobs:
           node-version: '20'
 
       - name: Install Bruno CLI
-        run: |
-          BRUNO_VERSION="3.0.1"
-          wget -q https://github.com/bruno-testing/bruno/releases/download/v${BRUNO_VERSION}/bruno-linux-x64.tar.gz
-          tar -xzf bruno-linux-x64.tar.gz
-          sudo mv bruno /usr/local/bin/
-          bruno -v
+        run: npm install -g @usebruno/cli
 
       - name: Run Bruno collection
-        run: |
-          bru run bruno/collections/api
+        run: bru run bruno/collections/api --env local
